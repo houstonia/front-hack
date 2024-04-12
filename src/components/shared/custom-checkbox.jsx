@@ -1,0 +1,47 @@
+import * as React from "react"
+import * as CheckboxPrimitive from "@radix-ui/react-checkbox"
+import { Check } from "lucide-react"
+
+import { cn } from "@/lib/utils"
+import { useDispatch } from "react-redux"
+
+const Checkbox = React.forwardRef(({ className, value,remove,set,data, ...props }, ref) => {
+
+  const [checked, setIsChecked] = React.useState(false)
+  const dispatch = useDispatch();
+
+  React.useEffect(() => {
+    if(data.length<=0){
+      setIsChecked(false)
+    }
+    setIsChecked(data.includes(value))
+  }, [data,dispatch])
+
+
+  const handleChange = () => {
+    setIsChecked(!checked)
+    if (!checked) {
+      dispatch(set(value))
+    } else {
+      dispatch(remove(value))
+    }
+  }
+
+  return <CheckboxPrimitive.Root
+    ref={ref}
+    checked={checked}
+    defaultChecked={false}
+    onClick={handleChange}
+    className={cn(
+      "peer h-5 w-5 shrink-0 rounded-sm border border-[#67C23A] ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground",
+      className
+    )}
+    {...props}>
+    <CheckboxPrimitive.Indicator className={cn("flex items-center justify-center text-current")} >
+      <Check className="h-5 w-5 bg-[#67C23A] rounded-sm border-none " />
+    </CheckboxPrimitive.Indicator>
+  </CheckboxPrimitive.Root>
+})
+Checkbox.displayName = CheckboxPrimitive.Root.displayName
+
+export { Checkbox }

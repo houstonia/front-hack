@@ -1,0 +1,1 @@
+export {MyEducation} from './my-education';
