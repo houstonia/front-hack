@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink, Outlet } from "react-router-dom";
+import {NavLink, Outlet, useLocation} from "react-router-dom";
 import Header from "../components/shared/site-header";
 import { Toaster } from "@/components/ui/sonner"
 import { useSelector } from "react-redux";
@@ -39,8 +39,8 @@ const menuItems = [
 ];
 
 export const MainLayout = () => {
-    const [currentPath, setCurrentPath] = useState('')
-    const { currentUser } = useSelector(((state) => state.auth))
+    const location = useLocation();
+    const { currentUser } = useSelector(((state) => state.auth));
 
     const getCurrentPath = (path) =>  setCurrentPath(path)
 
@@ -53,7 +53,7 @@ export const MainLayout = () => {
                         <ul className="w-[100%] h-[196px] mt-[15px] flex-col items-center">
                             {menuItems.map((item, index) => (
                                 <NavLink to={item.href} key={index}>
-                                    <li key={item.title} className={`${currentPath == item.href ? 'bg-[#171B26]' : ''} w-[236px] h-9 px-[1.7rem] py-[1.5rem] mb-[10px] rounded-md justify-start items-center gap-1.5 inline-flex`} onClick={() => getCurrentPath(item.href)}>
+                                    <li key={item.title} className={`${location.pathname === '/' + item.href ? 'bg-[#171B26]' : ''} w-[236px] h-9 px-[1.7rem] py-[1.5rem] mb-[10px] rounded-md justify-start items-center gap-1.5 inline-flex`} onClick={() => getCurrentPath(item.href)}>
                                         <div className="h-5 pr-[2.50px]  justify-center items-center flex">
                                             {item.icon()}
                                         </div>
@@ -65,10 +65,11 @@ export const MainLayout = () => {
                         </ul>
                     </nav>
                 </aside>
-                <main className="flex-1 w-[100%]  pt-5">
+                <main className="flex-1 w-[100%] pt-5">
                     <Outlet />
                 </main>
                 <Toaster color={(true ? "#67C23A" : "#F15048")} />
+                <div className='h-5 w-5 bg-red absolute'></div>
             </div>
         </div>
     );
