@@ -46,23 +46,23 @@ function AuthForm() {
             password: "",
         },
     })
-    // useEffect(() => {
-    //     if (token) {
-    //         navigate('/tasks')
-    //     }
-    // }, [dp, isAuthed])
+    useEffect(() => {
+        if (token) {
+            navigate('/tasks')
+        }
+    }, [dp, isAuthed])
 
-    // useEffect(() => {
-    //     if (error) {
-    //         console.log(error)
-    //         toast("Неверный email или пароль", { icon: <img className="w-[22px] h-[22px" src={X} alt="Иконка" /> })
-    //     }
+    useEffect(() => {
+        if (error) {
+            console.log(error)
+            toast("Неверный email или пароль", { icon: <img className="w-[22px] h-[22px" src={X} alt="Иконка" /> })
+        }
 
-    // }, [error, dp])
+    }, [error, dp])
     // 2. Define a submit handler.
     function onSubmit(values) {
-        navigate('/tasks')
-        // dp(userLogin(values))
+        // navigate('/tasks')
+        dp(userLogin(values))
     }
     // ...
     return (
