@@ -1,80 +1,36 @@
 import {Circle, Image, Layer, Line, Stage} from 'react-konva';
 import FloorPlanImg from "@/assets/map.png";
 import useImage from 'use-image';
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 
 const FloorPlanImage = () => {
     const [image] = useImage(FloorPlanImg);
     return <Image image={image}/>;
 }
 
-const AnimatedLine = ({points, duration}) => {
-    const [animatedPoints, setAnimatedPoints] = useState([]);
+const FloorNavigator = ({points}) => {
+
+    const lineRef = useRef(null);
 
     useEffect(() => {
-        const startTime = Date.now();
-        const animation = requestAnimationFrame(function animate() {
-            const elapsedTime = Date.now() - startTime;
-            const progress = Math.min(elapsedTime / duration, 1);
-            const currentPoints = points.map((point, index) => {
-                if (index % 2 === 0) {
-                    return points[index] * progress;
-                } else {
-                    return points[index - 1] + (points[index] - points[index - 1]) * progress;
-                }
-            });
-            setAnimatedPoints(currentPoints);
-            if (progress < 1) {
-                requestAnimationFrame(animate);
-            }
-        });
+        const animateLine = () => {
+            let opacity = 0;
+            const animation = setInterval(() => {
+                opacity += 0.03; // Постепенное увеличение прозрачности
+                lineRef.current.opacity(opacity);
+                if (opacity >= 1) clearInterval(animation); // Остановка анимации, когда достигнута полная прозрачность
+            }, 100);
+        };
 
-        return () => cancelAnimationFrame(animation);
-    }, [points, duration]);
+        animateLine();
 
-    return <Line points={animatedPoints} stroke="#A779F6" strokeWidth={5} tension={0.05}/>
-};
-
-const FloorNavigator = () => {
-
-    // const lineRef = useRef(null);
-    //
-    // useEffect(() => {
-    //     const animateLine = () => {
-    //         let length = 0;
-    //         const points = lineRef.current.points(); // Получаем текущие координаты точек линии
-    //
-    //
-    //         const x1 = points[0];
-    //         const y1 = points[1];
-    //         const x2 = points[2];
-    //         const y2 = points[3];
-    //
-    //         const distance = Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2); // Вычисляем длину линии
-    //
-    //         const animation = requestAnimationFrame(function drawLine() {
-    //             length += distance / 100;
-    //             lineRef.current.points([x1, y1, x1 + (x2 - x1) * (length / distance), y1 + (y2 - y1) * (length / distance)]);
-    //
-    //             if (length < distance) {
-    //                 requestAnimationFrame(drawLine);
-    //             }
-    //         });
-    //
-    //         return () => cancelAnimationFrame(animation);
-    //     };
-    //
-    //     animateLine();
-    // }, []);
-
-    // const points = [170, 265, 546, 265, 546, 360];
-    const points = [50, 380, 415, 380, 415, 75, 470, 75, 470, 25]
-    const animationDuration = 1000; // Длительность анимации в миллисекундах
+        return () => clearInterval(animateLine);
+    }, []);
 
     return (
         <div style={{
-            height: '531px',
-            width: '944px',
+            height: 'fit-content',
+            width: '100%',
             backgroundColor: '#191925',
             borderRadius: '8px',
             display: 'flex',
@@ -84,7 +40,7 @@ const FloorNavigator = () => {
             <Stage width={656} height={464}>
                 <Layer>
                     <FloorPlanImage/>
-                    <AnimatedLine points={points} duration={animationDuration}/>
+                    <Line points={points} stroke="#A779F6" strokeWidth={5} tension={0.05} ref={lineRef}/>
                     <Circle
                         x={points[0]}
                         y={points[1]}

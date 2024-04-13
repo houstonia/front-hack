@@ -4,6 +4,7 @@ import UserAvatar from '@/assets/user-avatar.png';
 import CheckIcon from '@/assets/check-icon.svg';
 import { cn } from '@/lib/utils.js';
 import { Button } from '@/components/ui/button.jsx';
+import {TopicCard} from "@/components/shared/topic-card.jsx";
 
 const MetaParser = ({meta}) => {
   const {type} = meta;
@@ -44,6 +45,13 @@ const MetaParser = ({meta}) => {
           </div>
         </ItemWrapper>
       )
+      case 'topics':
+          const {topics} = meta;
+          return (
+              <div>
+                  {topics.map(topic => <div className='mb-1'><TopicCard key={topic.id} title={topic.title} content={topic.content} telegram_name={topic.tgUrl} /></div>)}
+              </div>
+          )
   }
 
 }

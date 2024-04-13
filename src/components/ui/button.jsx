@@ -26,6 +26,7 @@ const buttonVariants = cva(
         default: "h-10 px-4 py-2",
         sm: "h-9 rounded-md px-3",
         lg: "h-11 rounded-md px-8",
+        lg2: "h-13 rounded-md px-8",
         icon: "h-10 w-10",
         standart:"w-[119px] h-[52px] px-8 py-3.5 text-base font-semibold  leading-tight",
         download:"h-[42px] px-3.5 py-2.5  text-[15px] font-semibold leading-tight",
@@ -35,7 +36,8 @@ const buttonVariants = cva(
         red:"bg-[#9A66F4] ",
         disabled:"bg-[#222631]",
         success:"bg-[#67C23A]",
-        background3:"bg-[#9A66F4  ]"
+        background3:"bg-[#9A66F4  ]",
+        purple: "bg-[#9A66F4]"
       }
     },
     defaultVariants: {

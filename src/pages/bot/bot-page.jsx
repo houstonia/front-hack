@@ -79,11 +79,35 @@ const content = [
     id: '345435454',
     text: ['Держи чатик ребят со схожими интересами!'],
     meta: {
-      type: 'topic',
+      type: 'topics',
+      topics: [
+        {
+          id: 'evervrvrec',
+          title: 'Музыка',
+          content: 'Собраны люди любящие музыку!',
+          tgUrl: 'https://t.me/25gg1_2',
+        },
+        {
+          id: 'evervrvrergec',
+          title: 'Гитаристы',
+          content: 'Привет, мы гитаристы, входи в наш телеграм канал!',
+          tgUrl: 'https://t.me/25gg1_2',
+        },
+      ],
       action: 'test'
     },
     my: false
   },
+  {
+    id: '3454354',
+    text: ['Что едят черепахи?'],
+    my: true
+  },
+  {
+    id: '345435454',
+    text: ['Черепашки едят маленькие кусочки яблок, слив, персиков, абрикосов'],
+    my: false
+  }
 ]
 
 const BotPage = () => {
