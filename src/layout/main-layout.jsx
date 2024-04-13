@@ -14,7 +14,7 @@ import PlatformTour from "@/components/shared/platformTour/platformTour.jsx";
 
 const menuItems = [
     {
-        href: 'bot',
+        href: '',
         title: 'Электроник',
         icon: () => <img src={Electronic} alt="" srcset="" />
     },
