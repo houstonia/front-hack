@@ -1,58 +1,61 @@
-import React, { useState } from "react";
+import React from "react";
 import {NavLink, Outlet, useLocation} from "react-router-dom";
 import Header from "@/components/shared/site-header";
-import { Toaster } from "@/components/ui/sonner"
-import { useSelector } from "react-redux";
+import {Toaster} from "@/components/ui/sonner"
+import {useSelector} from "react-redux";
 import Map from "@/assets/icons/map.svg"
 import Trophy from "@/assets/icons/trophy.svg";
 import News from "@/assets/icons/news.svg"
 import Message from "@/assets/icons/message.svg"
 import Coop from "@/assets/icons/coop.svg"
 import Electronic from "@/assets/icons/electronic.svg"
-import {Hint} from "@/components/shared/hint/hint.jsx";
-import PlatformTour from "@/components/shared/platformTour/platformTour.jsx";
 
 const menuItems = [
     {
         href: '',
         title: 'Электроник',
-        icon: () => <img src={Electronic} alt="" srcset="" />
+        icon: () => <img src={Electronic} alt="" srcset=""/>
     },
     {
         href: 'tasks',
         title: 'ТГ чаты',
-        icon: () => <img src={Message} alt="" srcset="" />
+        icon: () => <img src={Message} alt="" srcset=""/>
     },
     {
         href: 'map',
         title: 'Карты',
-        icon: () => < img src={Map} alt="" />
+        icon: () => < img src={Map} alt=""/>
     },
     {
         href: 'project-hub',
         title: 'Проектный хаб',
-        icon: () => <img src={News} />
+        icon: () => <img src={News}/>
     },
     {
         href: 'cooperative',
         title: 'Кооператив',
-        icon: () => <img src={Coop} />
+        icon: () => <img src={Coop}/>
+    },
+    {
+        href: 'learning',
+        title: 'Обучение',
+        icon: () => <img src={Trophy} alt="" srcset=""/>
     },
     {
         href: 'achievments',
         title: 'Ачивки',
-        icon: () => <img src={Trophy} alt="" srcset="" />
+        icon: () => <img src={Trophy} alt="" srcset=""/>
     },
 
 ];
 
 export const MainLayout = () => {
     const location = useLocation();
-    const { currentUser } = useSelector(((state) => state.auth));   
+    const { currentUser } = useSelector(((state) => state.auth));
 
     return (
         <div className='bg-[#0D111D] min-h-screen relative'>
-            <Header currentUser={currentUser} />
+            <Header currentUser={currentUser}/>
             <div className="flex px-[310px] pt-[2rem] gap-3">
                 <aside className='w-full md:w-[260px] relative flex-col justify-start items-start inline-flex'>
                     <nav className="ml-3">
@@ -72,9 +75,9 @@ export const MainLayout = () => {
                     </nav>
                 </aside>
                 <main className="flex-1 w-[100%] pt-5">
-                    <Outlet />
+                    <Outlet/>
                 </main>
-                <Toaster color={(true ? "#67C23A" : "#F15048")} />
+                <Toaster color={(true ? "#67C23A" : "#F15048")}/>
                 <div className='h-5 w-5 bg-red absolute'></div>
             </div>
         </div>

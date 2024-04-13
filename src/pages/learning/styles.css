@@ -1,0 +1,16 @@
+.node__root > circle {
+    r: 5;
+}
+
+.node__branch > circle {
+    r: 5;
+}
+
+.node__leaf > circle {
+    r: 5;
+}
+
+.node__link {
+    stroke: #818888 !important;
+    stroke-width: 3px !important;
+}
