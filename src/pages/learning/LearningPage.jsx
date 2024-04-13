@@ -10,6 +10,17 @@ const containerStyles = {
     height: "calc(100vh - 300px)"
 };
 
+const getColor = (level) => {
+    switch(level) {
+        case "easy":
+            return '#0CCE6B'
+        case "medium":
+            return '#A779F6'
+        case "hard":
+            return '#FFC100'
+    }
+}
+
 const renderForeignObjectNode = ({
                                      nodeDatum,
                                      toggleNode,
@@ -24,7 +35,7 @@ const renderForeignObjectNode = ({
                 style={{
                     border: "1px solid transparent",
                     borderRadius: "12px",
-                    backgroundColor: "#A779F6",
+                    backgroundColor: getColor(nodeDatum.level),
                     color: 'white',
                     width: 'fit-content',
                     minWidth: '170px'

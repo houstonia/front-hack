@@ -1,28 +1,36 @@
 {
   "name": "Алгебра и арифметика",
+  "level": "easy",
   "children": [
     {
       "name": "Геометрия",
+      "level": "easy",
       "children": [
         {
           "name": "Тригонометрия",
+          "level": "easy",
           "children": [
             {
               "name": "Производные",
+              "level": "easy",
               "children": [
                 {
                   "name": "Диффиренциальные исчисления",
+                  "level": "medium",
                   "children": [
                     {
                       "name": "Определенные и неопределенные интегралы",
+                      "level": "medium",
                       "children": [
                         {
-                          "name": "Математический анализ"
+                          "name": "Математический анализ",
+                          "level": "medium"
                         }
                       ]
                     },
                     {
-                      "name": "Основы теории вероятсноей"
+                      "name": "Основы теории вероятностей",
+                      "level": "medium"
                     }
                   ]
                 }
@@ -32,33 +40,73 @@
         },
         {
           "name": "История компьютеров",
+          "level": "easy",
           "children": [
             {
               "name": "Школьная информатика",
+              "level": "easy",
               "children": [
                 {
                   "name": "Основы алгоритмов",
+                  "level": "easy",
                   "children": [
                     {
                       "name": "Функции и графики",
+                      "level": "easy",
                       "children": [
                         {
                           "name": "Теория чисел",
+                          "level": "medium",
                           "children": [
                             {
                               "name": "Логические операции",
+                              "level": "medium",
                               "children": [
                                 {
-                                  "name": "Операционные системы"
+                                  "name": "Операционные системы",
+                                  "level": "medium",
+                                  "children": [
+                                    {
+                                      "name": "Проектирование и настройка сетей",
+                                      "level": "hard"
+                                    }
+                                  ]
                                 },
                                 {
-                                  "name": "Дискретная математика"
+                                  "name": "Дискретная математика",
+                                  "level": "medium",
+                                  "children": [
+                                    {
+                                      "name": "Основы информационной безопаности",
+                                      "level": "medium",
+                                      "children": [
+                                        {
+                                          "name": "Основы криптографии",
+                                          "level": "hard"
+                                        }
+                                      ]
+                                    }
+                                  ]
                                 },
                                 {
-                                  "name": "Структуры данных"
+                                  "name": "Структуры данных",
+                                  "level": "medium",
+                                  "children": [
+                                    {
+                                      "name": "Основы теории графов",
+                                      "level": "hard"
+                                    }
+                                  ]
                                 },
                                 {
-                                  "name": "Операционные системы"
+                                  "name": "Операционные системы",
+                                  "level": "medium",
+                                  "children": [
+                                    {
+                                      "name": "Низкоуровневое программирование",
+                                      "level": "hard"
+                                    }
+                                  ]
                                 }
                               ]
                             }
@@ -66,15 +114,19 @@
                         },
                         {
                           "name": "Линейная алгебра",
+                          "level": "easy",
                           "children": [
                             {
                               "name": "Основы программирования Python",
+                              "level": "easy",
                               "children": [
                                 {
                                   "name": "Основы машинного обучения",
+                                  "level": "medium",
                                   "children": [
                                     {
-                                      "name": "Основы нейронных сетей"
+                                      "name": "Основы нейронных сетей",
+                                      "level": "hard"
                                     }
                                   ]
                                 }
