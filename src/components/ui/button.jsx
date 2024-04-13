@@ -30,6 +30,7 @@ const buttonVariants = cva(
         icon: "h-10 w-10",
         standart:"w-[119px] h-[52px] px-8 py-3.5 text-base font-semibold  leading-tight",
         download:"h-[42px] px-3.5 py-2.5  text-[15px] font-semibold leading-tight",
+        full:"w-full h-11 rounded-md "
 
       },
       bg:{
