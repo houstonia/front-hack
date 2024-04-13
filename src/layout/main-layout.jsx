@@ -48,9 +48,7 @@ const menuItems = [
 
 export const MainLayout = () => {
     const location = useLocation();
-    const { currentUser } = useSelector(((state) => state.auth));
-
-    const getCurrentPath = (path) =>  setCurrentPath(path)
+    const { currentUser } = useSelector(((state) => state.auth));   
 
     return (
         <div className='bg-[#0D111D] min-h-screen relative'>
@@ -61,7 +59,7 @@ export const MainLayout = () => {
                         <ul className="w-[100%] h-[196px] mt-[15px] flex-col items-center">
                             {menuItems.map((item, index) => (
                                 <NavLink to={item.href} key={index}>
-                                    <li key={item.title} className={`${location.pathname === '/' + item.href ? 'bg-[#171B26]' : ''} w-[236px] h-9 px-[1.7rem] py-[1.5rem] mb-[10px] rounded-md justify-start items-center gap-1.5 inline-flex`} onClick={() => getCurrentPath(item.href)}>
+                                    <li key={item.title} className={`${location.pathname === '/' + item.href ? 'bg-[#171B26]' : ''} w-[236px] h-9 px-[1.7rem] py-[1.5rem] mb-[10px] rounded-md justify-start items-center gap-1.5 inline-flex`}>
                                         <div className="h-5 pr-[2.50px]  justify-center items-center flex">
                                             {item.icon()}
                                         </div>
