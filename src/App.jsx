@@ -10,6 +10,7 @@ import BotPage from '@/pages/bot/bot-page.jsx';
 import { Map } from './pages/map/map';
 import { ProjectHub } from './pages/project-hub/project-hub';
 import { Cooperative } from './pages/cooperative';
+import { EducationTest } from './pages/education-test/education-test';
 
 function App() {
   let user = false
@@ -21,6 +22,7 @@ function App() {
         <Route element={<MainLayout />}>
           <Route path='cooperative' element={<Cooperative />} />  
           <Route path='' element={<BotPage />} />
+          <Route path='education-test' element={<EducationTest />} />
           <Route path='tasks' element={<Tasks />} />
           <Route path='myresults' element={<MyEducation />} />
           <Route path="achievments" element={<Achievements/>}/>

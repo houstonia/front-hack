@@ -8,11 +8,13 @@ const inputVariants = cva(
   {
     variants: {
       variant: {
+        task:"bg-[#282A3E] text-white text-base font-semibold font-['Raleway'] leading-tight rounded-md",
         default: "text-white text-base font-semibold font-['Raleway'] leading-tight rounded-md",
         bot: "text-white text-base font-semibold font-['Raleway'] leading-tight rounded-l-md"
       },
       size: {
-        default:"h-[52px]  w-full px-3 py-2 ",
+        default:"h-[52px]  w-full px-3 py-2",
+        test:"h-[52px]  w-full px-3 py-2",
         task:"my-3 w-[521px] h-[52px] px-[18px] py-3.5 text-zinc-500 text-base font-semibold  leading-tight placeholder:text-zinc-500 text-base font-semibold font-['Raleway'] leading-tight"
       },
       border:{
