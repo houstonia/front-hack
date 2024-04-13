@@ -9,6 +9,7 @@ export const ProtectedRoutes = ({
   // user,
   redirectPath = '/register',
   children,
+  
 }) => {
   const { isAuthed } = useSelector((state) => state.auth)
   const token = localStorage.getItem('userToken');
