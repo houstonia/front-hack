@@ -5,6 +5,7 @@ import storageSlice from './features/storage/storageSlice';
 import taskSlices from './features/tasks/taskSlices';
 import titleSlices from './features/title/titleSlices';
 import toaster from './features/toaster/toaster';
+import topicSlices from './features/topic/topicSlices';
 export default configureStore({
   reducer: {
     title:titleSlices,
@@ -12,6 +13,7 @@ export default configureStore({
     auth:authSlices,
     task:taskSlices,
     storage:storageSlice,
-    toaster:toaster
+    toaster:toaster,
+    topic:topicSlices
   },
 });

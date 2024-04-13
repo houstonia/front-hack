@@ -3,7 +3,6 @@ import axios from 'axios'
 
 const backendURL = 'https://tasks.infotecshack.duckdns.org';
 
-
 export const getTasks = async () => {
     let config = {}
     const token = localStorage.getItem("userToken")
