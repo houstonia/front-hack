@@ -16,17 +16,22 @@ import {
 import BottomPanel from "@/pages/map/BottomPanel.jsx";
 import SidePanel from "@/pages/map/SidePanel.jsx";
 import axios from "axios";
+import {useLocation} from "react-router-dom";
 
 export const Map=()=>{
 
     const [selectedTab, setSelectedTab] = useState(0);
     const [points, setPoints] = useState([]);
     const [positions, setPositions] = useState({from: '', to: ''});
+    const location = useLocation();
+    const data = {coordinates: location?.state?.coordinates || []};
+
+    console.log('datawdwdd', data)
 
     const templates = [
         {
             title: "2D карта",
-            template: <FloorNavigator points={points}/>
+            template: <FloorNavigator points={points.length ? points : data.coordinates}/>
         },
         {
             title: "360' карта",

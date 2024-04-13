@@ -66,7 +66,8 @@ const content = [
       text: ['7а-403 находится здесь!', '7й корпус, 5-й этаж, от лестницы направо'],
       type: 'button',
       content: 'Перейти в карты',
-      action: 'test'
+      action: 'buildRoute',
+      data: {coordinates: [2,3,6,7,4,65,234,45]}
     },
     my: false
   },
