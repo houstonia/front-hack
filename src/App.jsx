@@ -20,7 +20,7 @@ function App() {
         <Route path="auth" element={<AuthPage />} />
         <Route element={<MainLayout />}>
           <Route path='cooperative' element={<Cooperative />} />  
-          <Route path='bot' element={<BotPage />} />
+          <Route path='' element={<BotPage />} />
           <Route path='tasks' element={<Tasks />} />
           <Route path='myresults' element={<MyEducation />} />
           <Route path="achievments" element={<Achievements/>}/>
