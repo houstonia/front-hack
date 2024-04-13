@@ -3,6 +3,7 @@ import Tree from "react-d3-tree";
 import orgChartJson from "./org-chart.json";
 import {useCenteredTree} from "./helpers";
 import './styles.css';
+import {useNavigate, useNavigation} from "react-router-dom";
 
 const containerStyles = {
     width: "100%",
@@ -12,13 +13,14 @@ const containerStyles = {
 const renderForeignObjectNode = ({
                                      nodeDatum,
                                      toggleNode,
-                                     foreignObjectProps
+                                     foreignObjectProps,
+                                     navigate
                                  }) => (
     <g>
         <circle r={15}></circle>
         {/* `foreignObject` requires width & height to be explicitly set. */}
         <foreignObject {...foreignObjectProps}>
-            <div
+            <div onClick={() => navigate('/education-test')}
                 style={{
                     border: "1px solid transparent",
                     borderRadius: "12px",
@@ -50,6 +52,7 @@ const renderForeignObjectNode = ({
 );
 
 export default function LearningPage() {
+    const navigate = useNavigate();
     const [translate, containerRef] = useCenteredTree();
     const nodeSize = {x: 200, y: 200};
     const foreignObjectProps = {
@@ -69,7 +72,7 @@ export default function LearningPage() {
                 leafNodeClassName="node__leaf"
                 pathClassFunc={() => "node__link"}
                 renderCustomNodeElement={(rd3tProps) =>
-                    renderForeignObjectNode({...rd3tProps, foreignObjectProps})
+                    renderForeignObjectNode({...rd3tProps, foreignObjectProps, navigate})
                 }
                 orientation="vertical"
             />
