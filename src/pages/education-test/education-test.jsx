@@ -10,6 +10,6 @@ export const EducationTest = () => {
             <TestCard />
             <TestCard />
         </div>
-        <Button size="lg" bg="purple" className='fixed top-[129px] right-[60px]'>Завершить</Button>
+        <Button size="lg" bg="purple">Завершить</Button>
     </div>
 }
