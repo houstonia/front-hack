@@ -16,14 +16,14 @@ import { Link } from "react-router-dom";
 import { logout } from "../../redux/features/auth/authSlices";
 import { useDispatch } from "react-redux";
 import NotificationIcon from "@/assets/icons/Notifications.svg";
-import Logo from "@/assets/infotecsLogo.svg";
+import Logo from "@/assets/itHub_logo.svg";
 
 
 function Header({currentUser}) {
     console.log(LogIn)
     const dp=useDispatch()
     return <header className="bg-[#171B26] px-[350px] py-5 flex justify-between">
-        <img src={Logo} />
+        <img src={Logo}/>
         <div className="flex flex-row gap-3">
             <button>
                 <img className="rounded-lg" src={NotificationIcon}></img>

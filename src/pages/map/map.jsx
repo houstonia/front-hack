@@ -21,6 +21,7 @@ export const Map=()=>{
 
     const [selectedTab, setSelectedTab] = useState(0);
     const [points, setPoints] = useState([]);
+    const [positions, setPositions] = useState({from: '', to: ''});
 
     const templates = [
         {
@@ -34,7 +35,7 @@ export const Map=()=>{
     ]
 
     const fetchPoints = () => {
-        axios.get('http://80.76.60.168:8080/api/maps/?start=reg4rt&end=g4g4tgf').then(res => setPoints(res.data.coordinates))
+        axios.get(`http://80.76.60.168:8080/api/maps/?start=${positions.from}&end=${positions.to}`).then(res => setPoints(res.data.coordinates))
     }
 
     return (
@@ -55,7 +56,7 @@ export const Map=()=>{
                 </div>
             </div>
             <div className='w-[272px] h-[45px] block min-w-[272px]'>
-                <SidePanel fetchPoints={fetchPoints}/>
+                <SidePanel fetchPoints={fetchPoints} setPositions={setPositions}/>
             </div>
         </div>
     )
