@@ -8,6 +8,7 @@ import store from './redux/store';
 import { ProtectedRoutes } from './routes/protected-routes';
 import BotPage from '@/pages/bot/bot-page.jsx';
 import { Map } from './pages/map/map';
+import { ProjectHub } from './pages/project-hub/project-hub';
 
 function App() {
   let user = false
@@ -20,7 +21,7 @@ function App() {
           <Route path='bot' element={<BotPage />} />
           <Route path='tasks' element={<Tasks />} />
           <Route path='myresults' element={<MyEducation />} />
-          <Route path="/achievments" element={<Achievements/>}/>
+          <Route path="achievments" element={<Achievements/>}/>
           <Route path='tasks' element={<ProtectedRoutes user={user}><Tasks /></ProtectedRoutes>} />
           <Route path='tasks/:id' element={<ProtectedRoutes user={user}><TaskDescription /> </ProtectedRoutes>} />
           <Route path='tasks/:id/solution' element={<ProtectedRoutes user={user}><Solution /> </ProtectedRoutes>} />
@@ -31,7 +32,7 @@ function App() {
           <Route path='map' element={<ProtectedRoutes user={user}><Map /></ProtectedRoutes>} />
           <Route path='modules' element={<ProtectedRoutes user={user}><Modules /></ProtectedRoutes>} />
           <Route path='lk' element={<ProtectedRoutes user={user}><Lk /></ProtectedRoutes>} />
-          <Route path='leaderboard' element={<Leaderboard/>}/>
+          <Route path='project-hub' element={<ProjectHub/>}/>
           <Route path='modules/change-module' element={<ProtectedRoutes user={user}><ChangeModule /></ProtectedRoutes>} />
           <Route path='modules/add-module' element={<ProtectedRoutes user={user}><AddModule /></ProtectedRoutes>} />
           <Route path='modules/add-challenge' element={<ProtectedRoutes user={user}><AddChallenge /> </ProtectedRoutes>} />

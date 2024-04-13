@@ -26,7 +26,7 @@ const menuItems = [
         icon: () => < img src={Map} alt="" />
     },
     {
-        href: 'leaderboard',
+        href: 'project-hub',
         title: 'Проектный хаб',
         icon: () => <img src={News} />
     },

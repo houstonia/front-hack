@@ -5,12 +5,10 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select"
-import { Hint } from "../../components/shared/hint/hint"
 
 export const Leaderboard = () => {
     return <div className="flex flex-col gap-4 text-white">
         <div>Топ 10 лидеров недели</div>
-        <Hint/>
         <div className="flex flex-row gap-4">
             <img src="/src/assets/icons/Chart.png" />
             <img src="/src/assets/icons/Designations.png" />
