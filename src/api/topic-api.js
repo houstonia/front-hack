@@ -8,3 +8,11 @@ export const getTopics=async()=>{
     console.log(data)
     return data.res
 }
+
+const hubUrl ="http://80.76.60.168:8080/api/hub"
+
+
+export const getTasksFromHub=async()=>{
+    const { data } = await axios.get(`${hubUrl}`)
+    return data.res
+}

@@ -1,6 +1,9 @@
 import { ProjectHubCard } from "@/components/shared/project-hub/project-hub-card"
 import { SearchInput } from "@/components/shared/search-input"
 import { Button } from "@/components/ui/button"
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getTasksHubsAsync } from "../../redux/features/topic/topicSlices";
 
 const Wrapper = ({ title, children }) => {
     return (
@@ -14,14 +17,22 @@ const Wrapper = ({ title, children }) => {
 }
 
 export const ProjectHub = () => {
+  const {tasksHub}=  useSelector((state)=>state.topic)
+   const dp= useDispatch()
+    useEffect(()=>{
+        dp(getTasksHubsAsync())
+    },[])
     return <div>
         <div className="w-full flex flex-row pb-3">
             <SearchInput className="bg-[#171B26] w-full hover:outline-none hover:border-none" placeholder="Поиск" />
             <Button className="bg-[#9A66F4] text-white ml-4" size="lg">Поиск</Button>
         </div>
-        <Wrapper title="Мой Заголовок">
-            <ProjectHubCard />
-            <ProjectHubCard />
+        {tasksHub?.map(i=>(
+        <Wrapper title={i.company_name}>
+            {i.tasks.map(task=>(
+            <ProjectHubCard key={task.id} title={task.title} tags={task.subjects} description={task.description} level={task.level}/>
+            ))}
         </Wrapper>
+        ))}
     </div>
 }
