@@ -8,6 +8,8 @@ import Trophy from "../assets/icons/trophy.svg";
 import News from "../assets/icons/news.svg"
 import Message from "../assets/icons/message.svg"
 import Electronic from "../assets/icons/electronic.svg"
+import {Hint} from "@/components/shared/hint/hint.jsx";
+import PlatformTour from "@/components/shared/platformTour/platformTour.jsx";
 
 const menuItems = [
     {

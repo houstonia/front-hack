@@ -1,9 +1,9 @@
 import React from 'react';
 
-const PlatformTour = () => {
+const PlatformTour = ({items}) => {
     return (
         <div>
-            
+
         </div>
     );
 };
