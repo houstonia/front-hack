@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import {NavLink, Outlet, useLocation} from "react-router-dom";
-import Header from "../components/shared/site-header";
+import Header from "@/components/shared/site-header";
 import { Toaster } from "@/components/ui/sonner"
 import { useSelector } from "react-redux";
-import Map from "../assets/icons/map.svg"
-import Trophy from "../assets/icons/trophy.svg";
-import News from "../assets/icons/news.svg"
-import Message from "../assets/icons/message.svg"
-import Electronic from "../assets/icons/electronic.svg"
+import Map from "@/assets/icons/map.svg"
+import Trophy from "@/assets/icons/trophy.svg";
+import News from "@/assets/icons/news.svg"
+import Message from "@/assets/icons/message.svg"
+import Coop from "@/assets/icons/coop.svg"
+import Electronic from "@/assets/icons/electronic.svg"
 import {Hint} from "@/components/shared/hint/hint.jsx";
 import PlatformTour from "@/components/shared/platformTour/platformTour.jsx";
 
@@ -31,6 +32,11 @@ const menuItems = [
         href: 'project-hub',
         title: 'Проектный хаб',
         icon: () => <img src={News} />
+    },
+    {
+        href: 'cooperative',
+        title: 'Кооператив',
+        icon: () => <img src={Coop} />
     },
     {
         href: 'achievments',

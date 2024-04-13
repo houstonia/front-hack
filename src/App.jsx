@@ -9,6 +9,7 @@ import { ProtectedRoutes } from './routes/protected-routes';
 import BotPage from '@/pages/bot/bot-page.jsx';
 import { Map } from './pages/map/map';
 import { ProjectHub } from './pages/project-hub/project-hub';
+import { Cooperative } from './pages/cooperative';
 
 function App() {
   let user = false
@@ -18,6 +19,7 @@ function App() {
         <Route  path="register" element={<RegPage />} />
         <Route path="auth" element={<AuthPage />} />
         <Route element={<MainLayout />}>
+          <Route path='cooperative' element={<Cooperative />} />  
           <Route path='bot' element={<BotPage />} />
           <Route path='tasks' element={<Tasks />} />
           <Route path='myresults' element={<MyEducation />} />
