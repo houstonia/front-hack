@@ -11,8 +11,8 @@ const colors={
     "лёгкая":"#0CCE6B",
     "средняя":"#A779F6",
     "тяжёлая":"#FFC100"
-
 }
+
 export const ProjectHubCard = ({onClick=()=>{},tags=["Математика","Информатика","ИИ"],title="Онбординг",description="Создание сервиса облегчающего вхождение абитуриента в ...",level="средняя"}) => {
     return <div onClick={onClick} className="w-fit p-4 bg-[#222631] rounded-lg mr-3 mb-3">
         <p className="text-white text-base font-semibold font-['Raleway'] leading-tight py-2">{title}</p>
@@ -26,7 +26,7 @@ export const ProjectHubCard = ({onClick=()=>{},tags=["Математика","И�
             <img src={Users} alt="" />
             <span className="text-sm text-zinc-500 font-semibold font-['Raleway'] leading-tight m-2">Сложность:</span> 
             {/* <span className="text-green-500 text-sm font-semibold font-['Raleway'] leading-tight mr-2">легкая</span> */}
-            <span className={`text-[${colors[level]}] text-sm font-semibold font-['Raleway'] leading-tight mr-2`}>{level}</span>
+            <span className={`text-[#FFC100] text-sm font-semibold font-['Raleway'] leading-tight mr-2`}>{level}</span>
         </div>
         {/* <Button size="full"><img src={Download} className="mr-2"/> Скачать материалы</Button> */}
     </div>}
