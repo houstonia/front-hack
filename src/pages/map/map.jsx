@@ -1,4 +1,4 @@
-import { useState } from "react";
+import {useEffect, useState} from "react";
 import { Button } from "../../components/ui/button";
 import { Input } from '@/components/ui/input'
 import {cn} from "@/lib/utils.js";
@@ -19,14 +19,17 @@ import axios from "axios";
 import {useLocation} from "react-router-dom";
 
 export const Map=()=>{
-
     const [selectedTab, setSelectedTab] = useState(0);
     const [points, setPoints] = useState([]);
     const [positions, setPositions] = useState({from: '', to: ''});
     const location = useLocation();
-    const data = {coordinates: location?.state?.coordinates || []};
+    const data = {coordinates: location?.state?.coordinates || [], from: location?.state?.from || '', to: location?.state?.to || ''};
 
-    console.log('datawdwdd', data)
+    useEffect(() => {
+        if(data.coordinates.length) {
+            setPositions({from: data.from, to: data.to});
+        }
+    }, [])
 
     const templates = [
         {
@@ -34,13 +37,13 @@ export const Map=()=>{
             template: <FloorNavigator points={points.length ? points : data.coordinates}/>
         },
         {
-            title: "360' карта",
+            title: "360' VR тур",
             template: <PanoramaTour/>
         },
     ]
-
+    // 80.76.60.168:8080
     const fetchPoints = () => {
-        axios.get(`http://80.76.60.168:8080/api/maps/?start=${positions.from}&end=${positions.to}`).then(res => setPoints(res.data.coordinates))
+        axios.get(`https://gagarinhack.duckdns.org/api/maps/?start=${positions.from}&end=${positions.to}`).then(res => setPoints(res.data.coordinates))
     }
 
     return (
@@ -61,7 +64,7 @@ export const Map=()=>{
                 </div>
             </div>
             <div className='w-[272px] h-[45px] block min-w-[272px]'>
-                <SidePanel fetchPoints={fetchPoints} setPositions={setPositions}/>
+                <SidePanel fetchPoints={fetchPoints} setPositions={setPositions} positions={positions} />
             </div>
         </div>
     )

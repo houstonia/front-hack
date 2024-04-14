@@ -1,14 +1,14 @@
 {
   "name": "Алгебра и арифметика",
-  "level": "easy",
+  "level": "passed",
   "children": [
     {
       "name": "Геометрия",
-      "level": "easy",
+      "level": "passed",
       "children": [
         {
           "name": "Тригонометрия",
-          "level": "easy",
+          "level": "passed",
           "children": [
             {
               "name": "Производные",

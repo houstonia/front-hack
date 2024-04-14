@@ -8,7 +8,7 @@ const BottomPanel = ({...props}) => {
         <div {...props}>
             <div className='text-white text-sm'>Филиал</div>
             <div className='mt-2'>
-                <Select>
+                <Select defaultValue='light'>
                     <SelectTrigger className="w-full">
                         <SelectValue placeholder="Выбрите филиал"/>
                     </SelectTrigger>

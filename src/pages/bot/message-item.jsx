@@ -15,7 +15,7 @@ const MetaParser = ({meta}) => {
     const applyAction = (action) => {
         switch (action) {
             case 'buildRoute':
-                navigate('/map', {state: {coordinates: data.coordinates}});
+                navigate('/map', {state: {coordinates: data.coordinates, from: data.from, to: data.to}});
                 break;
         }
     }

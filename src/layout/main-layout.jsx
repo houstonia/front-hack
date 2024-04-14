@@ -9,6 +9,7 @@ import News from "@/assets/icons/news.svg"
 import Message from "@/assets/icons/message.svg"
 import Coop from "@/assets/icons/coop.svg"
 import Electronic from "@/assets/icons/electronic.svg"
+import School from "@/assets/school-icon.svg";
 
 const menuItems = [
     {
@@ -39,7 +40,7 @@ const menuItems = [
     {
         href: 'learning',
         title: 'Обучение',
-        icon: () => <img src={Trophy} alt="" srcset=""/>
+        icon: () => <img src={School} alt="" srcset=""/>
     },
     {
         href: 'achievments',

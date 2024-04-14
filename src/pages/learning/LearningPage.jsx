@@ -12,12 +12,14 @@ const containerStyles = {
 
 const getColor = (level) => {
     switch(level) {
+        case "passed":
+            return 'gray';
         case "easy":
-            return '#0CCE6B'
+            return '#0CCE6B';
         case "medium":
-            return '#A779F6'
+            return '#A779F6';
         case "hard":
-            return '#FFC100'
+            return '#FFC100';
     }
 }
 
