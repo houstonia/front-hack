@@ -2,7 +2,7 @@
 import axios from 'axios'
 import { createAsyncThunk } from '@reduxjs/toolkit'
 
-const backendURL = 'https://api.infotecshack.duckdns.org'
+const backendURL = 'http://80.76.60.168:8080'
 
 export const userLogin = createAsyncThunk(
   'auth/login',
@@ -34,7 +34,7 @@ export const userLogin = createAsyncThunk(
 
 export const registerUser = createAsyncThunk(
   'user/register',
-  async ({ username, email, password }, { rejectWithValue }) => {
+  async ({ telegram_user,full_name, email, password }, { rejectWithValue }) => {
     try {
       const config = {
         headers: {
@@ -44,7 +44,7 @@ export const registerUser = createAsyncThunk(
 
       await axios.post(
         `${backendURL}/api/auth/register`,
-        { username, email, password },
+        { telegram_user,full_name, email, password },
         config
       )
     } catch (error) {

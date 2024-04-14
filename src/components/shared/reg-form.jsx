@@ -24,7 +24,7 @@ import X from "@/assets/icons/x.svg";
 import WhiteCheck from "@/assets/icons/white-check.svg";
 
 const formSchema = z.object({
-    username: z.coerce.string().min(4, {
+    full_name: z.coerce.string().min(4, {
         message: "Как минимум 4 символа в никнейме",
     }),
     email: z.coerce.string().email({
@@ -32,6 +32,9 @@ const formSchema = z.object({
     }),
     password: z.string().min(6, {
         message: "Как минимум 6 символов в пароле",
+    }),
+    telegram_user:z.coerce.string().min(4, {
+        message: "Как минимум 4 символа",
     }),
 })
 
@@ -44,29 +47,31 @@ function RegForm() {
     const form = useForm({
         resolver: zodResolver(formSchema),
         defaultValues: {
-            username: "",
+            full_name: "",
             email: "",
             password: "",
+            telegram_user:""
         },
     })
 
-    // useEffect(() => {
-    //     if (success) {
-    //         navigate('/auth')
-    //         toast("Вы зарегистрированы", { icon: <img className="w-[22px] h-[22px" src={WhiteCheck} alt="Иконка" /> })
-    //     }
-    // }, [dp, success])
+    useEffect(() => {
+        if (success) {
+            navigate('/auth')
+            toast("Вы зарегистрированы", { icon: <img className="w-[22px] h-[22px" src={WhiteCheck} alt="Иконка" /> })
+        }
+    }, [dp, success])
 
-    // useEffect(() => {
-    //     console.log(error)
-    //     if (error) {
-    //         toast("Неверный email или пароль", { icon: <img className="w-[22px] h-[22px" src={X} alt="Иконка" /> })
-    //     }
+    useEffect(() => {
+        console.log(error)
+        if (error) {
+            toast("Неверный email или пароль", { icon: <img className="w-[22px] h-[22px" src={X} alt="Иконка" /> })
+        }
 
-    // }, [error, dp])
+    }, [error, dp])
     function onSubmit(values) {
-        // dp(registerUser(values))    
-        navigate('/auth')
+        console.log(values)
+        dp(registerUser(values))    
+        // navigate('/auth')
     }
     // ...
     return (
@@ -86,7 +91,7 @@ function RegForm() {
                     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 w-1/2 my-2">
                         <FormField
                             control={form.control}
-                            name="username"
+                            name="full_name"
                             render={({ field }) => (
                                 <FormItem>
                                     <FormLabel className="text-white">Никнейм</FormLabel>
@@ -122,6 +127,21 @@ function RegForm() {
                                     <FormLabel className="text-white">Пароль</FormLabel>
                                     <FormControl>
                                         <Input className="bg-[#222631] text-white" type="password" placeholder="Введите пароль" {...field} />
+                                    </FormControl>
+                                    <FormDescription>
+                                    </FormDescription>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                         <FormField
+                            control={form.control}
+                            name="telegram_user"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel className="text-white">Телеграм</FormLabel>
+                                    <FormControl>
+                                        <Input className="bg-[#222631] text-white"  placeholder="Введите телеграм аккаунт" {...field} />
                                     </FormControl>
                                     <FormDescription>
                                     </FormDescription>
