@@ -19,7 +19,7 @@ export const panoramaData = {
         img: Screen1,
         nextScense: [
             {
-                position: '3.721 1.63 2.294',
+                position: '2.721 -1.900 2.294',
                 rotation: '0 0 0',
                 next: 'screen2'
             }

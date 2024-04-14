@@ -2,7 +2,7 @@
 import axios from 'axios'
 import { createAsyncThunk } from '@reduxjs/toolkit'
 
-const backendURL = 'http://80.76.60.168:8080'
+const backendURL = 'http://147.45.106.53:8080'
 
 export const userLogin = createAsyncThunk(
   'auth/login',
@@ -44,7 +44,7 @@ export const registerUser = createAsyncThunk(
 
       await axios.post(
         `${backendURL}/api/auth/register`,
-        { telegram_user,full_name, email, password },
+        { telegram_user:`@${telegram_user}`,full_name, email, password },
         config
       )
     } catch (error) {
