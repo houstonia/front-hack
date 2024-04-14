@@ -7,7 +7,7 @@ import { getTasksHubsAsync } from "../../redux/features/topic/topicSlices";
 
 const Wrapper = ({ title, children }) => {
     return (
-        <div className="w-[fit] px-8 mb-7 py-7 bg-[#171B26] rounded-xl flex-col justify-start items-start gap-2.5 inline-flex">
+        <div className="w-full px-8 mb-7 py-7 bg-[#171B26] rounded-xl flex-col justify-start items-start gap-2.5 inline-flex">
             <h1 className="text-white text-lg font-bold font-['Raleway'] leading-snug">{title}</h1>
             <div className="flex flex-wrap">
                 {children}
