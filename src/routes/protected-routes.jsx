@@ -13,7 +13,8 @@ export const ProtectedRoutes = ({
 }) => {
   const { isAuthed } = useSelector((state) => state.auth)
   const token = localStorage.getItem('userToken');
-
+ 
+  
   if (false) {
     return <Navigate to={redirectPath} replace />;
   }
